@@ -1,13 +1,13 @@
 import React, { FC, useContext } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-import Homepage from './pages/Homepage';
-import About from './pages/About';
+import Homepage from './pages/HomePage/Homepage';
+import About from './pages/About/About';
 import Page404 from './pages/404';
 import { LangContext } from './context/lang';
 import Header from './components/Header';
 
-const App: FC = () => {
+const App: FC<any> = () => {
     const {
         dispatch: { translate },
     } = useContext(LangContext);

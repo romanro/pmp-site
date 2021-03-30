@@ -1,8 +1,16 @@
 {
-    "home": "Home",
-    "about": "About Us",
-    "introText": "We are a digital agency that boosts businesses and grows startups",
-    "aboutUsText": "We strive for innovation, believe in creating creative solutions and implementing technology using simple User Experience.",
-    "pageDoesNotExist": "This page does not exist.",
-    "returnToHomepage": "Return to homepage"
+    "common": {
+        "returnToHomepage": "Return to homepage"
+    },
+    "home": {
+        "home": "Home",
+        "introText": "We are a digital agency that boosts businesses and grows startups"
+    },
+    "about": {
+        "aboutUs": "About Us",
+        "aboutUsText": "We strive for innovation, believe in creating creative solutions and implementing technology using simple User Experience."
+    },
+    "page404": {
+        "pageDoesNotExist": "This page does not exist."
+    }
 }

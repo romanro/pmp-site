@@ -1,8 +1,16 @@
 {
-    "home": "עמוד הבית",
-    "about": "אודות",
-    "introText": "סטם זבל",
-    "aboutUsText": "אנחנו - הכי טובים",
-    "pageDoesNotExist": "העמוד הזה אינו קיים",
-    "returnToHomepage": "חזרה לעמוד הבית"
+    "common": {
+        "returnToHomepage": "חזרה לעמוד הבית"
+    },
+    "home": {
+        "home": "עמוד הבית",
+        "introText": "סטם זבל"
+    },
+    "about": {
+        "aboutUs": "אודות",
+        "aboutUsText": "אנחנו - הכי טובים"
+    },
+    "page404": {
+        "pageDoesNotExist": "העמוד הזה אינו קיים"
+    }
 }

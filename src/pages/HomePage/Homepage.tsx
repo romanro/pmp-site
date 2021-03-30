@@ -10,7 +10,7 @@ const Homepage: FC<HomepageProps> = ({ translate }) => {
             <section className='intro'>
                 <div className='intro__overlay'></div>
                 <div className='intro__body'>
-                    <p>{translate('introText')}</p>
+                    <p>{translate('home.introText')}</p>
                 </div>
             </section>
         </Fragment>

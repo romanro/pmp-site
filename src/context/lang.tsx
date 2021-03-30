@@ -1,32 +1,20 @@
-import React, { useReducer, createContext, FC, ReactNode } from 'react';
+import React, { useReducer, createContext, FC } from 'react';
 
 import en from '../assets/dictionaries/en.json';
 import he from '../assets/dictionaries/he.json';
 
-enum LangActionType {
-    SET_LANGUAGE = 'SET_LANGUAGE',
-}
+import typy from 'typy';
+import {
+    ContextProps,
+    LangActionType,
+    LangStateProps,
+    LangStateState,
+    Language,
+    SetLanguageAction,
+} from './language.models';
+import { LanguageService } from '../_infra/services/language.service';
 
-interface LangStateState {
-    language: string;
-}
-
-interface LangStateProps {
-    children: ReactNode;
-}
-
-interface SetLanguageAction {
-    type: typeof LangActionType.SET_LANGUAGE;
-    payload: string;
-}
-
-interface ContextProps {
-    state: LangStateState;
-    dispatch: {
-        setLanguage: (lang: string) => void;
-        translate: (key: string) => string;
-    };
-}
+const langService = new LanguageService();
 
 const langReducer = (state: LangStateState, action: SetLanguageAction): LangStateState => {
     switch (action.type) {
@@ -39,9 +27,8 @@ const langReducer = (state: LangStateState, action: SetLanguageAction): LangStat
     }
 };
 
-const localStorageLang = localStorage.getItem('language');
 const initialState = {
-    language: localStorageLang ? localStorageLang : 'EN',
+    language: langService.getCurrentLanguage(),
 };
 
 export const LangContext = createContext({} as ContextProps);
@@ -49,8 +36,8 @@ export const LangContext = createContext({} as ContextProps);
 const LangState: FC<LangStateProps> = ({ children }) => {
     const [state, dispatch] = useReducer(langReducer, initialState);
 
-    const setLanguage = (lang: string) => {
-        localStorage.setItem('language', lang);
+    const setLanguage = (lang: Language) => {
+        langService.setLanguage(lang);
         dispatch({
             type: LangActionType.SET_LANGUAGE,
             payload: lang,
@@ -59,7 +46,7 @@ const LangState: FC<LangStateProps> = ({ children }) => {
 
     const translate = (key: string): string => {
         const { language } = state;
-        let langData: { [key: string]: string } = {};
+        let langData: { [key: string]: string | any } = {};
 
         if (language === 'EN') {
             langData = en;
@@ -67,7 +54,7 @@ const LangState: FC<LangStateProps> = ({ children }) => {
             langData = he;
         }
 
-        return langData[key];
+        return typy(langData, key).safeString;
     };
 
     return (

@@ -2,6 +2,7 @@ import React, { useCallback, useState, useEffect, useRef, useContext, FC } from 
 import { NavLink, Link } from 'react-router-dom';
 
 import { LangContext } from '../context/lang';
+import { Language } from '../context/language.models';
 
 const Header: FC<any> = () => {
     const {
@@ -28,7 +29,7 @@ const Header: FC<any> = () => {
         };
     }, [handleClickOutside]);
 
-    const chooseLanguageHandler = (value: string) => {
+    const chooseLanguageHandler = (value: Language) => {
         setShowDropdown(false);
         setLanguage(value);
     };
@@ -54,12 +55,12 @@ const Header: FC<any> = () => {
                     <ul className='navbar-nav me-auto mb-2 mb-lg-0'>
                         <li className='nav-item'>
                             <NavLink className='nav-link' to='/' exact>
-                                {translate('home')}
+                                {translate('home.home')}
                             </NavLink>
                         </li>
                         <li className='nav-item'>
                             <NavLink className='nav-link' to='/about' exact>
-                                {translate('about')}
+                                {translate('about.aboutUs')}
                             </NavLink>
                         </li>
                         <li className='nav-item dropdown'>
@@ -73,10 +74,14 @@ const Header: FC<any> = () => {
                             </button>
                             {showDropdown && (
                                 <ul className='dropdown-menu show' ref={dropdownEl} aria-labelledby='navbarDropdown'>
-                                    <li className='dropdown-item' onClick={() => chooseLanguageHandler('EN')}>
+                                    <li
+                                        className='dropdown-item'
+                                        onClick={() => chooseLanguageHandler(Language.English)}>
                                         EN
                                     </li>
-                                    <li className='dropdown-item' onClick={() => chooseLanguageHandler('HE')}>
+                                    <li
+                                        className='dropdown-item'
+                                        onClick={() => chooseLanguageHandler(Language.Hebrew)}>
                                         HE
                                     </li>
                                 </ul>
