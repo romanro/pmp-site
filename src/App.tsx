@@ -5,7 +5,7 @@ import Homepage from './pages/HomePage/Homepage';
 import About from './pages/About/About';
 import Page404 from './pages/404';
 import { LangContext } from './context/lang';
-import Header from './components/Header';
+import Header from './components/Header/Header';
 
 const App: FC<any> = () => {
     const {

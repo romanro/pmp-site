@@ -1,0 +1,14 @@
+@import '../../../styles/variables';
+
+.AddressBar {
+    padding: 10px 0;
+    background: $primary;
+
+    .navLink {
+        color: $gray-200;
+
+        &:hover {
+            color: $white;
+        }
+    }
+}
