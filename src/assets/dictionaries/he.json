@@ -6,9 +6,24 @@
         "home": "עמוד הבית",
         "introText": "סטם זבל"
     },
+    "tech": {
+        "tech": "טכנולוגיות"
+    },
+    "markets": {
+        "markets": "שווקים"
+    },
+    "standards": {
+        "standards": "סטנדרטים"
+    },
+    "products": {
+        "products": "מוצרים"
+    },
     "about": {
         "aboutUs": "אודות",
         "aboutUsText": "אנחנו - הכי טובים"
+    },
+    "contact": {
+        "contactUs": "צור קשר"
     },
     "page404": {
         "pageDoesNotExist": "העמוד הזה אינו קיים"

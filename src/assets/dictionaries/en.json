@@ -6,9 +6,24 @@
         "home": "Home",
         "introText": "We are a digital agency that boosts businesses and grows startups"
     },
+    "tech": {
+        "tech": "Technologies"
+    },
+    "markets": {
+        "markets": "Markets"
+    },
+    "standards": {
+        "standards": "Standards"
+    },
+    "products": {
+        "products": "Products"
+    },
     "about": {
         "aboutUs": "About Us",
         "aboutUsText": "We strive for innovation, believe in creating creative solutions and implementing technology using simple User Experience."
+    },
+    "contact": {
+        "contactUs": "Contact Us"
     },
     "page404": {
         "pageDoesNotExist": "This page does not exist."
