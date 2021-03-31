@@ -5,6 +5,11 @@ export enum Language {
     Hebrew = 'HE',
 }
 
+export enum Direction {
+    RTL = 'rtl',
+    LTR = 'ltr',
+}
+
 export enum LangActionType {
     SET_LANGUAGE = 'SET_LANGUAGE',
 }
@@ -29,3 +34,8 @@ export interface ContextProps {
         translate: (key: string) => string;
     };
 }
+
+export const LanguageDirection = {
+    [Language.English]: Direction.LTR,
+    [Language.Hebrew]: Direction.RTL,
+};

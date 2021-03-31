@@ -48,10 +48,15 @@ const LangState: FC<LangStateProps> = ({ children }) => {
         const { language } = state;
         let langData: { [key: string]: string | any } = {};
 
-        if (language === 'EN') {
-            langData = en;
-        } else if (language === 'HE') {
-            langData = he;
+        switch (language) {
+            case Language.English:
+                langData = en;
+                break;
+            case Language.Hebrew:
+                langData = he;
+                break;
+            default:
+                langData = en;
         }
 
         return typy(langData, key).safeString;
