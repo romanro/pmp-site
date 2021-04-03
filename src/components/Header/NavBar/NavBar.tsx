@@ -1,9 +1,12 @@
-import React, { FC, useContext } from 'react';
+import React, { FC, useContext, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { LangContext } from '../../../context/lang';
 import styles from './NavBar.module.scss';
 import classnames from 'classnames';
 import { Language } from '../../../context/language.models';
+import useWindowSize, { WindowSize } from '../../../_infra/hooks/useWindowSize';
+import HamburgerBtn from './HamburgerBtn';
+import Logo from '../../Logo/Logo';
 
 export interface NavBarProps {}
 
@@ -13,63 +16,61 @@ const NavBar: FC<NavBarProps> = (props: NavBarProps) => {
         dispatch: { setLanguage, translate },
     } = useContext(LangContext);
 
+    const [showMenu, setShowMenu] = useState<boolean>(false);
+
+    const size: WindowSize = useWindowSize();
+
     const chooseLanguage = (value: Language) => {
+        setShowMenu(false);
         setLanguage(value);
     };
 
+    const toggleMenu = () => {
+        setShowMenu(!showMenu);
+    };
+
     return (
-        <nav className='navbar navbar-expand-lg navbar-light bg-light'>
+        <nav className='navbar fixed-top navbar-expand-lg navbar-light bg-light'>
             <div className='container'>
                 <span className='navbar-brand'>
-                    <Link to='/'>PMP</Link>
+                    <Logo />
                 </span>
-                <button
-                    className='navbar-toggler'
-                    type='button'
-                    data-bs-toggle='collapse'
-                    data-bs-target='#navbarSupportedContent'
-                    aria-controls='navbarSupportedContent'
-                    aria-expanded='false'
-                    aria-label='Toggle navigation'>
-                    <span className='navbar-toggler-icon'></span>
-                </button>
+                <HamburgerBtn onClick={() => toggleMenu()} showMenu={showMenu} />
 
                 <div
-                    className={classnames('collapse', 'navbar-collapse', styles.navbarCollapse)}
+                    className={classnames('collapse', 'navbar-collapse', { show: showMenu })}
                     id='navbarSupportedContent'>
-                    <ul className='navbar-nav me-auto mb-2 mb-lg-0'>
+                    <ul className={classnames('navbar-nav', styles.navbarNav)}>
                         <li className='nav-item'>
-                            <NavLink className='nav-link' to='/tech' exact>
+                            <NavLink className='nav-link' to='/tech' exact onClick={() => setShowMenu(false)}>
                                 {translate('tech.tech')}
                             </NavLink>
                         </li>
                         <li className='nav-item'>
-                            <NavLink className='nav-link' to='/markets' exact>
+                            <NavLink className='nav-link' to='/markets' exact onClick={() => setShowMenu(false)}>
                                 {translate('markets.markets')}
                             </NavLink>
                         </li>
                         <li className='nav-item'>
-                            <NavLink className='nav-link' to='/standards' exact>
+                            <NavLink className='nav-link' to='/standards' exact onClick={() => setShowMenu(false)}>
                                 {translate('standards.standards')}
                             </NavLink>
                         </li>
                         <li className='nav-item'>
-                            <NavLink className='nav-link' to='/products' exact>
+                            <NavLink className='nav-link' to='/products' exact onClick={() => setShowMenu(false)}>
                                 {translate('products.products')}
                             </NavLink>
                         </li>
                         <li className='nav-item'>
-                            <NavLink className='nav-link' to='/about' exact>
+                            <NavLink className='nav-link' to='/about' exact onClick={() => setShowMenu(false)}>
                                 {translate('about.aboutUs')}
                             </NavLink>
                         </li>
                         <li className='nav-item'>
-                            <NavLink className='nav-link' to='/contact' exact>
+                            <NavLink className='nav-link' to='/contact' exact onClick={() => setShowMenu(false)}>
                                 {translate('contact.contactUs')}
                             </NavLink>
                         </li>
-                    </ul>
-                    <ul className={classnames(styles.LanguageBar, 'navbar-nav')}>
                         {language !== Language.English && (
                             <li className='nav-item'>
                                 <button

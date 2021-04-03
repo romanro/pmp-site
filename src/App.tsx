@@ -21,33 +21,35 @@ const App: FC<any> = () => {
     return (
         <BrowserRouter basename=''>
             <Header />
-            <Switch>
-                <Route path='/' exact>
-                    <Homepage translate={translate} />
-                </Route>
-                <Route path='/tech' exact>
-                    <Tech translate={translate} />
-                </Route>
-                <Route path='/markets' exact>
-                    <Markets translate={translate} />
-                </Route>
-                <Route path='/standards' exact>
-                    <Standards translate={translate} />
-                </Route>
-                <Route path='/products' exact>
-                    <Products translate={translate} />
-                </Route>
-                <Route path='/about' exact>
-                    <About translate={translate} />
-                </Route>
-                <Route path='/contact' exact>
-                    <ContactUs translate={translate} />
-                </Route>
-                <Route path='*'>
-                    <Page404 translate={translate} />
-                </Route>
-            </Switch>
-            <Footer translate={translate} />
+            <div className='content-container'>
+                <Switch>
+                    <Route path='/' exact>
+                        <Homepage translate={translate} />
+                    </Route>
+                    <Route path='/tech' exact>
+                        <Tech translate={translate} />
+                    </Route>
+                    <Route path='/markets' exact>
+                        <Markets translate={translate} />
+                    </Route>
+                    <Route path='/standards' exact>
+                        <Standards translate={translate} />
+                    </Route>
+                    <Route path='/products' exact>
+                        <Products translate={translate} />
+                    </Route>
+                    <Route path='/about' exact>
+                        <About translate={translate} />
+                    </Route>
+                    <Route path='/contact' exact>
+                        <ContactUs translate={translate} />
+                    </Route>
+                    <Route path='*'>
+                        <Page404 translate={translate} />
+                    </Route>
+                </Switch>
+                <Footer translate={translate} />
+            </div>
         </BrowserRouter>
     );
 };
