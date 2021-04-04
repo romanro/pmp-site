@@ -19,10 +19,10 @@
         height: auto;
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.7s ease-in-out;
+        transition: max-height 0.5s ease-in-out;
 
         &.show {
-            max-height: 500px;
+            max-height: 510px;
         }
     }
 }
@@ -35,6 +35,7 @@
         padding-right: 30px;
         @include media-breakpoint-down(md) {
             padding-right: 0;
+            justify-content: flex-end;
         }
     }
 
@@ -42,6 +43,7 @@
         padding-left: 30px;
         @include media-breakpoint-down(md) {
             padding-left: 0;
+            justify-content: flex-end;
         }
     }
 }
