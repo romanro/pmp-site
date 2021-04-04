@@ -1,10 +1,10 @@
 import React, { FC, useContext, useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { LangContext } from '../../../context/lang';
 import styles from './NavBar.module.scss';
 import classnames from 'classnames';
 import { Language } from '../../../context/language.models';
-import useWindowSize, { WindowSize } from '../../../_infra/hooks/useWindowSize';
+// import useWindowSize, { WindowSize } from '../../../_infra/hooks/useWindowSize';
 import HamburgerBtn from './HamburgerBtn';
 import Logo from '../../Logo/Logo';
 
@@ -18,7 +18,7 @@ const NavBar: FC<NavBarProps> = (props: NavBarProps) => {
 
     const [showMenu, setShowMenu] = useState<boolean>(false);
 
-    const size: WindowSize = useWindowSize();
+    // const size: WindowSize = useWindowSize();
 
     const chooseLanguage = (value: Language) => {
         setShowMenu(false);
@@ -38,7 +38,7 @@ const NavBar: FC<NavBarProps> = (props: NavBarProps) => {
                 <HamburgerBtn onClick={() => toggleMenu()} showMenu={showMenu} />
 
                 <div
-                    className={classnames('collapse', 'navbar-collapse', { show: showMenu })}
+                    className={classnames('navbar-collapse', showMenu ? styles.show : '', styles.collapsing)}
                     id='navbarSupportedContent'>
                     <ul className={classnames('navbar-nav', styles.navbarNav)}>
                         <li className='nav-item'>
@@ -72,19 +72,19 @@ const NavBar: FC<NavBarProps> = (props: NavBarProps) => {
                             </NavLink>
                         </li>
                         {language !== Language.English && (
-                            <li className='nav-item'>
+                            <li className={classnames('nav-item', styles.langBtn, styles.en)}>
                                 <button
                                     onClick={() => chooseLanguage(Language.English)}
-                                    className={classnames('btn btn-sm btn-link nav-link', styles.navLink)}>
-                                    English
+                                    className={classnames('btn btn-sm btn-link', styles.navLink)}>
+                                    ENGLISH
                                 </button>
                             </li>
                         )}
                         {language !== Language.Hebrew && (
-                            <li className='nav-item'>
+                            <li className={classnames('nav-item', styles.langBtn, styles.he)}>
                                 <button
                                     onClick={() => chooseLanguage(Language.Hebrew)}
-                                    className={classnames('btn btn-sm btn-link nav-link', styles.navLink)}>
+                                    className={classnames('btn btn-sm btn-link', styles.navLink)}>
                                     עברית
                                 </button>
                             </li>
