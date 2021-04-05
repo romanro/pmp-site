@@ -101,6 +101,13 @@ $yiq-text-light: $white !default;
 // Characters which are escaped by the escape-svg function
 $escaped-characters: (('<', '%3c'), ('>', '%3e'), ('#', '%23'), ('(', '%28'), (')', '%29')) !default;
 
+// Body
+//
+// Settings for the `<body>` element.
+
+$body-bg: $white !default;
+$body-color: $gray-800;
+
 // Options
 //
 // Quickly modify global styling by enabling or disabling optional features.

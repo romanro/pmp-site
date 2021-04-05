@@ -1,0 +1,76 @@
+@import '../../../styles/variables';
+
+.bannerContainer {
+}
+
+.banner {
+    display: flex;
+    width: 100%;
+    height: 300px;
+    background: royalblue;
+}
+
+.stageOuterClass {
+    position: relative;
+    direction: ltr !important;
+    overflow: hidden;
+    width: 100%;
+}
+
+.navContainerClass {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    top: calc(50% - 30px);
+    left: 0;
+    width: 100%;
+}
+
+@mixin owl-button {
+    background-color: rgba($color: $white, $alpha: 0.45);
+    border: none;
+    box-shadow: 0px 2px 2px rgba($color: $black, $alpha: 0.3);
+    width: 35px;
+    height: 45px;
+    transition: background-color 0.4s;
+    transition: width 0.3s ease-in-out;
+
+    &:hover {
+        width: 45px;
+        background-color: rgba($color: $white, $alpha: 0.65);
+    }
+
+    i {
+        font-size: 1.6rem;
+        color: $gray-800;
+        font-weight: 400;
+    }
+}
+
+.prevBtn {
+    @include owl-button;
+}
+
+.nextBtn {
+    @include owl-button;
+}
+
+.dotClass {
+    span {
+        border: 2px solid $gray-700;
+        width: 12px !important;
+        height: 12px !important;
+    }
+}
+
+:global(.owl-dot:not(.active)) {
+    span {
+        background: $white !important;
+    }
+}
+
+:global(.owl-dot.active) {
+    span {
+        background: $gray-700 !important;
+    }
+}
