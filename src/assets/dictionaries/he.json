@@ -1,6 +1,7 @@
 {
     "common": {
-        "returnToHomepage": "חזרה לעמוד הבית"
+        "returnToHomepage": "חזרה לעמוד הבית",
+        "basicTitle": "פוטו מטאל פלאסטיק"
     },
     "home": {
         "home": "עמוד הבית",
@@ -19,13 +20,14 @@
         "products": "מוצרים"
     },
     "about": {
-        "aboutUs": "אודות",
+        "about": "אודות",
         "aboutUsText": "אנחנו - הכי טובים"
     },
     "contact": {
-        "contactUs": "צור קשר"
+        "contact": "צור קשר"
     },
     "page404": {
+        "page404": "העמוד הזה אינו קיים",
         "pageDoesNotExist": "העמוד הזה אינו קיים"
     }
 }

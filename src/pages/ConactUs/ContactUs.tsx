@@ -8,7 +8,7 @@ const ContactUs: FC<ContactProps> = ({ translate }) => {
         <Fragment>
             <section className='contact'>
                 <div className='container'>
-                    <h1>{translate('contact.contactUs')}</h1>
+                    <h1>{translate('contact.contact')}</h1>
                 </div>
             </section>
         </Fragment>

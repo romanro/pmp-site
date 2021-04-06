@@ -63,12 +63,12 @@ const NavBar: FC<NavBarProps> = (props: NavBarProps) => {
                         </li>
                         <li className='nav-item'>
                             <NavLink className='nav-link' to='/about' exact onClick={() => setShowMenu(false)}>
-                                {translate('about.aboutUs')}
+                                {translate('about.about')}
                             </NavLink>
                         </li>
                         <li className='nav-item'>
                             <NavLink className='nav-link' to='/contact' exact onClick={() => setShowMenu(false)}>
-                                {translate('contact.contactUs')}
+                                {translate('contact.contact')}
                             </NavLink>
                         </li>
                         {language !== Language.English && (

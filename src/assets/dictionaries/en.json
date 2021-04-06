@@ -1,6 +1,7 @@
 {
     "common": {
-        "returnToHomepage": "Return to homepage"
+        "returnToHomepage": "Return to homepage",
+        "basicTitle": "Photo Metal Plastic"
     },
     "home": {
         "home": "Home",
@@ -19,13 +20,14 @@
         "products": "Products"
     },
     "about": {
-        "aboutUs": "About Us",
+        "about": "About Us",
         "aboutUsText": "We strive for innovation, believe in creating creative solutions and implementing technology using simple User Experience."
     },
     "contact": {
-        "contactUs": "Contact Us"
+        "contact": "Contact Us"
     },
     "page404": {
-        "pageDoesNotExist": "This page does not exist."
+        "page404": "Error 404 - This page does not exists",
+        "pageDoesNotExist": "This page does not exists."
     }
 }

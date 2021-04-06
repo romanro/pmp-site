@@ -12,6 +12,7 @@ import Markets from './pages/Markets/Markets';
 import Standards from './pages/Standards/Standards';
 import Products from './pages/Products/Products';
 import Footer from './components/Footer/Footer';
+import Page from './_infra/hoc/Page';
 
 const App: FC<any> = () => {
     const {
@@ -24,28 +25,44 @@ const App: FC<any> = () => {
             <div className='content-container'>
                 <Switch>
                     <Route path='/' exact>
-                        <Homepage translate={translate} />
+                        <Page title='home' translate={translate}>
+                            <Homepage translate={translate} />
+                        </Page>
                     </Route>
                     <Route path='/tech' exact>
-                        <Tech translate={translate} />
+                        <Page title='tech' translate={translate}>
+                            <Tech translate={translate} />
+                        </Page>
                     </Route>
                     <Route path='/markets' exact>
-                        <Markets translate={translate} />
+                        <Page title='markets' translate={translate}>
+                            <Markets translate={translate} />
+                        </Page>
                     </Route>
                     <Route path='/standards' exact>
-                        <Standards translate={translate} />
+                        <Page title='standards' translate={translate}>
+                            <Standards translate={translate} />
+                        </Page>
                     </Route>
                     <Route path='/products' exact>
-                        <Products translate={translate} />
+                        <Page title='products' translate={translate}>
+                            <Products translate={translate} />
+                        </Page>
                     </Route>
                     <Route path='/about' exact>
-                        <About translate={translate} />
+                        <Page title='about' translate={translate}>
+                            <About translate={translate} />
+                        </Page>
                     </Route>
                     <Route path='/contact' exact>
-                        <ContactUs translate={translate} />
+                        <Page title='contact' translate={translate}>
+                            <ContactUs translate={translate} />
+                        </Page>
                     </Route>
                     <Route path='*'>
-                        <Page404 translate={translate} />
+                        <Page title='page404' translate={translate}>
+                            <Page404 translate={translate} />
+                        </Page>
                     </Route>
                 </Switch>
                 <Footer translate={translate} />

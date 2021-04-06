@@ -8,7 +8,7 @@ const About: FC<AboutProps> = ({ translate }) => {
         <Fragment>
             <section className='about'>
                 <div className='container'>
-                    <h1>{translate('about.aboutUs')}</h1>
+                    <h1>{translate('about.about')}</h1>
 
                     <p>{translate('about.aboutUsText')}</p>
                 </div>
